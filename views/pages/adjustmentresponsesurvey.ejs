@@ -6,6 +6,7 @@
 	Created by Diego Romero for PSU MSSWENG Cohort-15 Capstone project
 	Edited on 6/23/2017 Wendy Hartman for PSU SWENG500
 	Edited on 7/3/2017 by Diego Romero for PSU SWENG500
+	Edited on 9/6/2017 by James Huckestein for Sense2 demo purposes
 -->
 <html>
 
@@ -44,167 +45,67 @@
                 <!-- Wendy Hartman: edited to reflect the intro for Adjustment Response Survey -->
                 <h2 id="content"> Adjustment Response Survey </h2>
                 <!--DR - Removed in-line quotes which were causing issues-->
-                <p>A 4-item measure of adjustment responses along a continuum between <i>Self</i> and <i>Situated-Other</i>. If users understand the four factors and have only a brief moment, they can use this to submit experiences.</p>
+                <p>A 4-item measure of responses along a continuum between <i>Generic-1</i> and <i>Generic-2</i>. This survey was a time-sensitive survey as part of the Psychology Department's research.</p>
                 <!--DR - Removed in-line quotes which were causing issues/-->
 
                 <hr class="major" />
-                <!--DR - Removed name-->
-                <!--<form name ="submit_episode" action="/episodesurvey" method="get">-->
                 <form method="get" action="/adjustmentresponsesurvey">
                     <!--DR - Removed div elements (to simplify) and style sub-element-->
                     <input type="text" name="arname" id="arname" value="" placeholder="Name" /><br/>
                     <input type="text" name="usernumber" id="usernumber" value="" placeholder="ID Number" /><br/>
                     <input type="text" name="arsurveynum" id="arsurveynum" value="" placeholder="Survey Number" /><br/>
                     <input type="text" name="ardescription" id="ardescription" value="" placeholder="Description Field" /><br/>
-                    <!--DR - Removed div elements (to simplify) and style sub-element/-->
 
-                    <!--DR - Removed (commented out). Multiple HTML issues-->
-                    <!--<b><p> Goal Commitment</b><p>-->
-                    <!--When you think about your commitment to your assigned goals for this global experience, would you <br>-->
-                    <!--say you were <b><i>mostly independent</i></b> (i.e., you acted independently to revise your goals according to the <br>-->
-                    <!--situation and/or your personal needs at the time) OR <b><i>mostly allegiant</i></b> (i.e., regardless of situational<br>-->
-                    <!--pressures or your needs at the time, you remained totally committed to your original assigned goals)?<br>-->
 
-                    <!--<div class="image-container">-->
-                    <!--<img class="scale" data-scale="best-fit-down" data-align="center" src="images/UpdatedGCimage.JPG">-->
-                    <!--</div>-->
-                    <!--<input id="slider1" type="range" min="0" max="6" step="1" onchange="showValue(this.value)" />-->
-                    <!--<span id=""range">6</form>-->
-                    <!--<script type="text/javascript">-->
-                    <!--function showValue(newValue)-->
-                    <!--{-->
-                    <!--document.getElementById("range").innerHTML=newValue;-->
-                    <!--}-->
-                    <!--</script>-->
-                    <!--</body>-->
-                    <!--</html>-->
-                    <!--DR - Removed (commented out). Multiple HTML issues/-->
 
                     <b>Goal Commitment</b><br/><br/>
-                    When you think about your commitment to your assigned goals for this global experience, would you <br/>say you were <b><i>mostly independent</i></b> (i.e., you acted independently to revise your goals according to the <br/>situation and/or your personal needs at the time) OR <b><i>mostly allegiant</i></b> (i.e., regardless of situational<br/>pressures or your needs at the time, you remained totally committed to your original assigned goals)?<br/><br/>
+                    Generic question to protect research <br/> would you say you were <b><i>mostly something</i></b> (i.e., you acted something according to the <br/>situation) OR <b><i>mostly something else</i></b> (i.e., regardless of situational<br/> needs at the time)?<br/><br/>
 
-                    <input type="radio" name="one" id="one1" value="1" /> <label for="one1">Mostly allegiant - 1</label> <br/>
+                    <input type="radio" name="one" id="one1" value="1" /> <label for="one1">Mostly something - 1</label> <br/>
                     <input type="radio" name="one" id="one2" value="2" /> <label for="one2">2</label> <br/>
                     <input type="radio" name="one" id="one3" value="3" /> <label for="one3">3</label> <br/>
                     <input type="radio" name="one" id="one4" value="4" /> <label for="one4">4</label> <br/>
                     <input type="radio" name="one" id="one5" value="5" /> <label for="one5">5</label> <br/>
-                    <input type="radio" name="one" id="one6" value="6" /> <label for="one6">Mostly independent - 6</label> <br/>
+                    <input type="radio" name="one" id="one6" value="6" /> <label for="one6">Mostly something else - 6</label> <br/>
                     <br/>
 
-                    <!--DR - Removed (commented out). Multiple HTML issues-->
-                    <!--<p>-->
-                    <!--<p><b> Managing Stress</b><p>-->
-                    <!--When you think about how you managed stress during this episode, would you say you were <b><i>mostly <br>-->
-                    <!--problem-focused</i></b> (i.e., you analyzed the sources of stress and tried to change the situation to make it <br>-->
-                    <!--less stressful) or <b><i>mostly emotion-focused</i></b> (i.e., you expressed/vented your feelings or tolerated the<br>-->
-                    <!--stress without trying to change the situation).<br>-->
 
-                    <!--<div class="image-container">-->
-                    <!--<img class="scale" data-scale="best-fit-down" data-align="center" src="images/UpdatedMSimage.JPG">-->
-                    <!--</div>-->
-                    <!--<input id="slider1" type="range" min="0" max="6" step="1" />-->
-                    <!--<span id=""range">6</form>-->
-                    <!--<script type="text/javascript">-->
-                    <!--function showValue(newValue)-->
-                    <!--{-->
-                    <!--document.getElementById("range").innerHTML=newValue;-->
-                    <!--}-->
-                    <!--</script>-->
-                    <!--</body>-->
-                    <!--</html>-->
-                    <!--DR - Removed (commented out). Multiple HTML issues/-->
 
                     <b>Managing Stress</b><br/><br/>
-                    When you think about how you managed stress during this episode, would you say you were <b><i>mostly <br/>problem-focused</i></b> (i.e., you analyzed the sources of stress and tried to change the situation to make it <br/>less stressful) or <b><i>mostly emotion-focused</i></b> (i.e., you expressed/vented your feelings or tolerated the<br/>stress without trying to change the situation).<br/><br/>
+                    Generic question to protect research, would you say you were <b><i>mostly <br/>something</i></b> (i.e., you did something <br/>) or <b><i>mostly something else</i></b> (i.e., you did something different <br/> without trying to XYZ).<br/><br/>
 
-                    <input type="radio" name="two" id="two1" value="1" /> <label for="two1">Mostly emotion focused - 1</label> <br/>
+                    <input type="radio" name="two" id="two1" value="1" /> <label for="two1">Mostly something - 1</label> <br/>
                     <input type="radio" name="two" id="two2" value="2" /> <label for="two2">2</label> <br/>
                     <input type="radio" name="two" id="two3" value="3" /> <label for="two3">3</label> <br/>
                     <input type="radio" name="two" id="two4" value="4" /> <label for="two4">4</label> <br/>
                     <input type="radio" name="two" id="two5" value="5" /> <label for="two5">5</label> <br/>
-                    <input type="radio" name="two" id="two6" value="6" /> <label for="two6">Mostly problem-focused - 6</label> <br/>
+                    <input type="radio" name="two" id="two6" value="6" /> <label for="two6">Mostly something else - 6</label> <br/>
                     <br/>
 
-                    <!--DR - Removed (commented out). Multiple HTML issues-->
-                    <!--<p>-->
-                    <!--<p><b> Frame of Reference</b><p>-->
-                    <!--When you think about how you framed and made sense of this episode, would you say you stretched <br>-->
-                    <!--your frame of reference (<b><i>elastic</i></b>) because you considered to new ways of thinking, new roles, and new <br>-->
-                    <!--possibilities, or did you not need to re-frame (<b><i>inelastic</i></b>) because your own cultural frame of reference,<br>-->
-                    <!--self-concept, values, and beliefs provided the frame for you to interpret this experience.<br>-->
-
-                    <!--<div class="image-container">-->
-                    <!--<img class="scale" data-scale="best-fit-down" data-align="center" src="images/UpdatedFRimage.JPG">-->
-                    <!--</div>-->
-                    <!--<input id="slider1" type="range" min="0" max="6" step="1" />-->
-                    <!--<span id=""range">6</form>-->
-                    <!--<script type="text/javascript">-->
-                    <!--function showValue(newValue)-->
-                    <!--{-->
-                    <!--document.getElementById("range").innerHTML=newValue;-->
-                    <!--}-->
-                    <!--</script>-->
-                    <!--</body>-->
-                    <!--</html>-->
-                    <!--<p>-->
-                    <!--DR - Removed (commented out). Multiple HTML issues/-->
 
                     <b>Frame of Reference</b><br/><br/>
-                    When you think about how you framed and made sense of this episode, would you say you stretched <br/>your frame of reference (<b><i>elastic</i></b>) because you considered to new ways of thinking, new roles, and new <br/>possibilities, or did you not need to re-frame (<b><i>inelastic</i></b>) because your own cultural frame of reference,<br/>self-concept, values, and beliefs provided the frame for you to interpret this experience.<br/><br/>
+                    Generic question about something to protect research, would you say you <br/>did something (<b><i>something generic</i></b>) because some justification <br/>possibilities, or something (<b><i>other generic</i></b>) because some other justification,<br/>etc, etc, etc.<br/><br/>
 
-                    <input type="radio" name="three" id="three1" value="1" /> <label for="three1">Mostly inelastic - 1</label> <br/>
+                    <input type="radio" name="three" id="three1" value="1" /> <label for="three1">Mostly something - 1</label> <br/>
                     <input type="radio" name="three" id="three2" value="2" /> <label for="three2">2</label> <br/>
                     <input type="radio" name="three" id="three3" value="3" /> <label for="three3">3</label> <br/>
                     <input type="radio" name="three" id="three4" value="4" /> <label for="three4">4</label> <br/>
                     <input type="radio" name="three" id="three5" value="5" /> <label for="three5">5</label> <br/>
-                    <input type="radio" name="three" id="three6" value="6" /> <label for="three6">Mostly elastic - 6</label> <br/>
+                    <input type="radio" name="three" id="three6" value="6" /> <label for="three6">Mostly something else - 6</label> <br/>
                     <br/>
 
-                    <!--DR - Removed (commented out). Multiple HTML issues-->
-                    <!--<p>-->
-                    <!--<b><p> Behavior</b><p>-->
-                    <!--When you think about how you behaved during this episode, would you say you mostly tried to <b><i>adapt</i></b> <br>-->
-                    <!--your behaviors to the situation (e.g., engaging in local activities, following local customs, or acting like <br>-->
-                    <!--those around you) or you mostly behaved according to your own behavioral <b><i>scripts</i></b>, which reflect your <br>-->
-                    <!--habits, your own customs and behavioral routines, and the way you normally conduct yourself?<br>-->
-
-                    <!--<div class="image-container">-->
-                    <!--<img class="scale" data-scale="best-fit-down" data-align="center" src="images/UpdatedBimage.JPG">-->
-                    <!--</div>-->
-                    <!--<input id="slider1" type="range" min="0" max="6" step="1" />-->
-                    <!--<span id=""range">6</form>-->
-                    <!--<script type="text/javascript">-->
-                    <!--function showValue(newValue)-->
-                    <!--{-->
-                    <!--document.getElementById("range").innerHTML=newValue;-->
-                    <!--}-->
-                    <!--</script>-->
-                    <!--</body>-->
-                    <!--</html>-->
-                    <!--<p>-->
-                    <!--DR - Removed (commented out). Multiple HTML issues/-->
 
                     <b>Behavior</b><br/><br/>
-                    When you think about how you behaved during this episode, would you say you mostly tried to <b><i>adapt</i></b> <br/>your behaviors to the situation (e.g., engaging in local activities, following local customs, or acting like <br/>those around you) or you mostly behaved according to your own behavioral <b><i>scripts</i></b>, which reflect your <br/>habits, your own customs and behavioral routines, and the way you normally conduct yourself?<br/><br/>
+                    Another generic question to protect research, would you say you mostly tried to <b><i>something</i></b> <br/>your behaviors to the situation (e.g., a description <br/>etc, etc,) or you mostly behaved according to etc, etc, <b><i>something else</i></b>, which reflect your <br/>something else description?<br/><br/>
 
-                    <input type="radio" name="four" id="four1" value="1" /> <label for="four1">Mostly scripted - 1</label> <br/>
+                    <input type="radio" name="four" id="four1" value="1" /> <label for="four1">Mostly something - 1</label> <br/>
                     <input type="radio" name="four" id="four2" value="2" /> <label for="four2">2</label> <br/>
                     <input type="radio" name="four" id="four3" value="3" /> <label for="four3">3</label> <br/>
                     <input type="radio" name="four" id="four4" value="4" /> <label for="four4">4</label> <br/>
                     <input type="radio" name="four" id="four5" value="5" /> <label for="four5">5</label> <br/>
-                    <input type="radio" name="four" id="four6" value="6" /> <label for="four6">Mostly adaptive - 6</label> <br/>
+                    <input type="radio" name="four" id="four6" value="6" /> <label for="four6">Mostly something else - 6</label> <br/>
                     <br/>
 
-                    <!--DR - Removed (commented out). Simplified-->
-                    <!--<br>-->
-                    <!--<div class="inner">-->
-                    <!--<ul class="actions">-->
-                    <!--<li><input type="submit" value="Submit" /></li>-->
-                    <!--<li><input type="reset" value="Reset" class="alt" /></li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--DR - Removed (commented out). Simplified-->
 
                     <input type="submit" value="Submit" />
 
