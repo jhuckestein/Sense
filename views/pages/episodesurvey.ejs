@@ -39,90 +39,61 @@
 
 				<!-- Content -->
 					<h2 id="content">Short Survey of an Unordinary, Disorienting, or Unexpected Experience</h2>
-					<p>Think of a specific episode within the past few days when you felt you had to adjust to the host culture.  The experience could be enjoyable/positive or frustrating/negative.  You were reminded that you are not at home because the episode was disorienting, confusing, difficult to understand, or unexpected.</p>
+					<p>This was an explanation of how to fill out the survey.  The point here is to show what kind of code we can write, not infringe on other's research.</p>
 					
 
 				<hr class="major" />
-				<!--DR - Removed name-->
-				<!--<form name ="submit_episode" action="/episodesurvey" method="get">-->
-				<form method="get" action="/episodesurvey">
-				<!--DR - Removed name/-->
 
-					<!--DR - Fixed coding issues and simplified-->
-					<!--Please give this episode a short descriptive title: <input type="text" name="title" value="" ="25" maxlength="250" /><p>-->
+				<form method="get" action="/episodesurvey">
+
+
+
+
 					Please give this episode a short descriptive title: <input type="text" name="title" id="title" value="" placeholder="Title" /><br/>
-                    <!--Where were you? (work, school, shopping, in your residence, etc.): <input type="text" name="location" value="" ="25" maxlength="250" /><p>-->
+
                     Where were you? (work, school, shopping, in your residence, etc.): <input type="text" name="location" id="location" value="" placeholder="Location" /><br/>
-                    <!--What city did this episode occur: <input type="text" name="city" value"" ="25" maxlength="50" /><p>-->
+
                     What city did this episode occur: <input type="text" name="city" id="city" value="" placeholder="City" /><br/>
-                    <!--What country did this episode occur: <input type="text" name="country" value"" ="25" maxlength="50" /><p>-->
+
                     What country did this episode occur: <input type="text" name="country" id="country" value="" placeholder="Country" /><br/>
-                    <!--What date did this episode occur: <input type="text" name="date" value"" ="25" maxlength="50" /><p>-->
+
                     What date did this episode occur: <input type="text" name="date" id="date" value="" placeholder="Date" /><br/>
-                    <!--What is your User Number: <input type="text" name="user" value"" ="25" maxlength="50" /><p>-->
+
                     What is your User Number: <input type="text" name="usernumber" id="usernumber" value="" placeholder="User Number" /><br/>
 
                     For each item below, check only one response that best describes the episode.<br/>
-                    <!--1. Compared to similar experiences at home in my own familiar culture, this episode is:<p>-->
-                    <!--<input type="radio" name="one" id="no1" value="No different" /> <label for="no1">No Different</label> <br/>-->
-                    <!--<input type="radio" name="one" id="some1" value="Somewhat atypical, unusual" /> <label for="some1">Somewhat atypical, unusual</label> <br/>-->
-                    <!--<input type="radio" name="one" id="ext1" value="Extremely unusual" /> <label for="ext1">Extremely unusual</label> <br/>-->
-                    <!--<p>-->
-                    1. Compared to similar experiences at home in my own familiar culture, this episode is:<br/><br/>
+
+                    1. Generic question number one for this episode:<br/><br/>
                     <input type="radio" name="one" id="one1" value="No different" /> <label for="one1">No Different</label> <br/>
                     <input type="radio" name="one" id="one2" value="Somewhat atypical, unusual" /> <label for="one2">Somewhat atypical, unusual</label> <br/>
                     <input type="radio" name="one" id="one3" value="Extremely unusual" /> <label for="one3">Extremely unusual</label> <br/>
                     <br/>
-                    <!--2. Given my knowledge, preparation, and what I have learned so far about the host culture, this episode: <p>-->
-                    <!--<input type="radio" name="two" id="exact2" value="Unfolded exactly as I expected or planned; I knew what to do/say" /> <label for="exact2">Unfolded exactly as I expected or planned; I knew what to do/say</label> <br/>-->
-                    <!--<input type="radio" name="two" id="more2" value="Happened more or less as I expected; I managed myself effectively" /> <label for="more2">Happened more or less as I expected; I managed myself effectively</label> <br/>-->
-                    <!--<input type="radio" name="two" id="not2" value="Was not at all what I was expecting or what I planned for; I was not sure what to do or say" /> <label for="not2">Was not at all what I was expecting or what I planned for; I was not sure what to do or say</label> <br/>-->
-                    <!--<p>-->
-                    2. Given my knowledge, preparation, and what I have learned so far about the host culture, this episode:<br/><br/>
-                    <input type="radio" name="two" id="two1" value="Unfolded exactly as I expected or planned; I knew what to do/say" /> <label for="two1">Unfolded exactly as I expected or planned; I knew what to do/say</label> <br/>
-                    <input type="radio" name="two" id="two2" value="Happened more or less as I expected; I managed myself effectively" /> <label for="two2">Happened more or less as I expected; I managed myself effectively</label> <br/>
-                    <input type="radio" name="two" id="two3" value="Was not at all what I was expecting or what I planned for; I was not sure what to do or say" /> <label for="two3">Was not at all what I was expecting or what I planned for; I was not sure what to do or say</label> <br/>
+
+                    2. Generic question number two for this episode:<br/><br/>
+                    <input type="radio" name="two" id="two1" value="Unfolded exactly" /> <label for="two1">Unfolded exactly</label> <br/>
+                    <input type="radio" name="two" id="two2" value="Happened" /> <label for="two2">Happened</label> <br/>
+                    <input type="radio" name="two" id="two3" value="Was not" /> <label for="two3">Was not</label> <br/>
                     <br/>
-                    <!--3. This episode made me feel: <p>-->
-                    <!--<input type="radio" name="three" id="ext3" value="Extremely disoriented or confused; shocked; not sure what to think" /> <label for="ext3">Extremely disoriented or confused; shocked; not sure what to think</label> <br/>-->
-                    <!--<input type="radio" name="three" id="some3" value="Somewhat disoriented; uncertain; a little awkward or perplexed" /> <label for="some3">Somewhat disoriented; uncertain; a little awkward or perplexed</label> <br/>-->
-                    <!--<input type="radio" name="three" id="sense3" value="Not at all disoriented; confident; everything made sense to me" /> <label for="sense3">Not at all disoriented; confident; everything made sense to me</label> <br/>-->
-                    <!--<p>-->
-                    3. This episode made me feel:<br/><br/>
-                    <input type="radio" name="three" id="three1" value="Extremely disoriented or confused; shocked; not sure what to think" /> <label for="three1">Extremely disoriented or confused; shocked; not sure what to think</label> <br/>
-                    <input type="radio" name="three" id="three2" value="Somewhat disoriented; uncertain; a little awkward or perplexed" /> <label for="three2">Somewhat disoriented; uncertain; a little awkward or perplexed</label> <br/>
-                    <input type="radio" name="three" id="three3" value="Not at all disoriented; confident; everything made sense to me" /> <label for="three3">Not at all disoriented; confident; everything made sense to me</label> <br/>
+
+                    3. Generic question number three:<br/><br/>
+                    <input type="radio" name="three" id="three1" value="Extremely" /> <label for="three1">Extremely</label> <br/>
+                    <input type="radio" name="three" id="three2" value="Somewhat" /> <label for="three2">Somewhat</label> <br/>
+                    <input type="radio" name="three" id="three3" value="Not" /> <label for="three3">Not</label> <br/>
                     <br/>
-                    <!--4. This episode also made me feel: <p>-->
-                    <!--<input type="radio" name="four" id="ext4" value="Extremely stressed" /> <label for="ext4">Extremely stressed</label> <br/>-->
-                    <!--<input type="radio" name="four" id="mod4" value="Moderately stressed" /> <label for="mod4">Moderately stressed</label> <br/>-->
-                    <!--<input type="radio" name="four" id="not4" value="Not stressed" /> <label for="not4">Not stressed</label> <br/>-->
-                    <!--<p>-->
-                    4. This episode also made me feel:<br/><br/>
-                    <input type="radio" name="four" id="four1" value="Extremely stressed" /> <label for="four1">Extremely stressed</label> <br/>
-                    <input type="radio" name="four" id="four2" value="Moderately stressed" /> <label for="four2">Moderately stressed</label> <br/>
-                    <input type="radio" name="four" id="four3" value="Not stressed" /> <label for="four3">Not stressed</label> <br/>
+
+                    4. Generic question number four:<br/><br/>
+                    <input type="radio" name="four" id="four1" value="Extremely" /> <label for="four1">Extremely</label> <br/>
+                    <input type="radio" name="four" id="four2" value="Moderately" /> <label for="four2">Moderately</label> <br/>
+                    <input type="radio" name="four" id="four3" value="Not" /> <label for="four3">Not</label> <br/>
                     <br/>
-                    <!--5. My words and actions during this episode were: <p>-->
-                    <!--<input type="radio" name="five" id="con5" value="Consistent with my values; beliefs, attitudes and the norms I usually follow" /> <label for="con5">Consistent with my values; beliefs, attitudes and the norms I usually follow</label> <br/>-->
-                    <!--<input type="radio" name="five" id="not5" value="Not consistent with my values; beliefs, attitudes and the norms I usually follow" /> <label for="not5">Not consistent with my values; beliefs, attitudes and the norms I usually follow</label> <br/>-->
-                    <!--<input type="radio" name="five" id="unc5" value="Uncomfortably different from my values, beliefs, attitudes, and the norms I usually follow" /> <label for="unc5">Uncomfortably different from my values, beliefs, attitudes, and the norms I usually follow</label> <br/>-->
-                    <!--<p>-->
-                    5. My words and actions during this episode were:<br/><br/>
-                    <input type="radio" name="five" id="five1" value="Consistent with my values; beliefs, attitudes and the norms I usually follow" /> <label for="five1">Consistent with my values; beliefs, attitudes and the norms I usually follow</label> <br/>
-                    <input type="radio" name="five" id="five2" value="Not consistent with my values; beliefs, attitudes and the norms I usually follow" /> <label for="five2">Not consistent with my values; beliefs, attitudes and the norms I usually follow</label> <br/>
-                    <input type="radio" name="five" id="five3" value="Uncomfortably different from my values, beliefs, attitudes, and the norms I usually follow" /> <label for="five3">Uncomfortably different from my values, beliefs, attitudes, and the norms I usually follow</label> <br/>
+
+                    5. Generic question number five:<br/><br/>
+                    <input type="radio" name="five" id="five1" value="Consistent" /> <label for="five1">Consistent</label> <br/>
+                    <input type="radio" name="five" id="five2" value="Not consistent" /> <label for="five2">Not consistent</label> <br/>
+                    <input type="radio" name="five" id="five3" value="Uncomfortably" /> <label for="five3">Uncomfortably</label> <br/>
                     <br/>
-                    <!--6. To what extent were cultural differences an important and relevant factor in this episode? <p>-->
-                    <!--<input type="radio" name="six" id="very6" value="Very much so/almost entirely (90-100%)" /> <label for="very6">Very much so/almost entirely (90-100%)</label> <br/>-->
-                    <!--<input type="radio" name="six" id="quite6" value="Quite a bit (75-90%)" /> <label for="quite6">Quite a bit (75-90%)</label> <br/>-->
-                    <!--<input type="radio" name="six" id="more6" value="More than half (50-75%)" /> <label for="more6">More than half (50-75%)</label> <br/>-->
-                    <!--<input type="radio" name="six" id="rel6" value="Relevant (35-50%)" /> <label for="rel6">Relevant (35-50%)</label> <br/>-->
-                    <!--<input type="radio" name="six" id="some6" value="Somewhat (15-24%)" /> <label for="some6">Somewhat (15-24%)</label> <br/>-->
-                    <!--<input type="radio" name="six" id="slight6" value="Slightly / just a little (5-10%)" /> <label for="slight6">Slightly / just a little (5-10%)</label> <br/>-->
-                    <!--<input type="radio" name="six" id="not6" value="Not at all (0%)" /> <label for="not6">Not at all (0%)</label> <br/>-->
-                    <!--<p>-->
-                    6. To what extent were cultural differences an important and relevant factor in this episode?<br/><br/>
+
+                    6. Generic question number six:<br/><br/>
                     <input type="radio" name="six" id="six1" value="Very much so/almost entirely (90-100%)" /> <label for="six1">Very much so/almost entirely (90-100%)</label> <br/>
                     <input type="radio" name="six" id="six2" value="Quite a bit (75-90%)" /> <label for="six2">Quite a bit (75-90%)</label> <br/>
                     <input type="radio" name="six" id="six3" value="More than half (50-75%)" /> <label for="six3">More than half (50-75%)</label> <br/>
@@ -132,16 +103,8 @@
                     <input type="radio" name="six" id="six7" value="Not at all (0%)" /> <label for="six7">Not at all (0%)</label> <br/>
                     <br/>
                     How did you respond during this episode?  Circle the number between 0 and 6 that best describes your responses to the episode, where zero means "not at all" and 6 means "to a great extent."<br/>
-                    <!--7. I listened, observed, and learned "on the spot" in order to interpret and understand this episode. <p>-->
-                    <!--<input type="radio" name="seven" id="not7" value="0" /> <label for="not7">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="seven" id="very7" value="1" /> <label for="very7">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="seven" id="two7" value="2" /> <label for="two7">2</label> <br/>-->
-                    <!--<input type="radio" name="seven" id="three7" value="3" /> <label for="three7">3</label> <br/>-->
-                    <!--<input type="radio" name="seven" id="four7" value="4" /> <label for="four7">4</label> <br/>-->
-                    <!--<input type="radio" name="seven" id="five7" value="5" /> <label for="five7">5</label> <br/>-->
-                    <!--<input type="radio" name="seven" id="six7" value="6" /> <label for="six7">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    7. I listened, observed, and learned "on the spot" in order to interpret and understand this episode.<br/><br/>
+
+                    7. Generic question number seven:<br/><br/>
                     <input type="radio" name="seven" id="seven1" value="0" /> <label for="seven1">Not at all - 0</label> <br/>
                     <input type="radio" name="seven" id="seven2" value="1" /> <label for="seven2">Very Little - 1</label> <br/>
                     <input type="radio" name="seven" id="seven3" value="2" /> <label for="seven3">2</label> <br/>
@@ -150,16 +113,8 @@
                     <input type="radio" name="seven" id="seven6" value="5" /> <label for="seven6">5</label> <br/>
                     <input type="radio" name="seven" id="seven7" value="6" /> <label for="seven7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--8. This episode changed the way I see myself and the possible roles that I can play <p>-->
-                    <!--<input type="radio" name="eight" id="not8" value="0" /> <label for="not8">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="eight" id="very8" value="1" /> <label for="very8">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="eight" id="two8" value="2" /> <label for="two8">2</label> <br/>-->
-                    <!--<input type="radio" name="eight" id="three8" value="3" /> <label for="three8">3</label> <br/>-->
-                    <!--<input type="radio" name="eight" id="four8" value="4" /> <label for="four8">4</label> <br/>-->
-                    <!--<input type="radio" name="eight" id="five8" value="5" /> <label for="five8">5</label> <br/>-->
-                    <!--<input type="radio" name="eight" id="six8" value="6" /> <label for="six8">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    8. This episode changed the way I see myself and the possible roles that I can play.<br/><br/>
+
+                    8. Generic question number eight.<br/><br/>
                     <input type="radio" name="eight" id="eight1" value="0" /> <label for="eight1">Not at all - 0</label> <br/>
                     <input type="radio" name="eight" id="eight2" value="1" /> <label for="eight2">Very Little - 1</label> <br/>
                     <input type="radio" name="eight" id="eight3" value="2" /> <label for="eight3">2</label> <br/>
@@ -168,16 +123,8 @@
                     <input type="radio" name="eight" id="eight6" value="5" /> <label for="eight6">5</label> <br/>
                     <input type="radio" name="eight" id="eight7" value="6" /> <label for="eight7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--9. I relied on my own values, beliefs, and what I already know in order to interpret what was going on and understand this episode. <p>-->
-                    <!--<input type="radio" name="nine" id="not9" value="0" /> <label for="not9">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="nine" id="very9" value="1" /> <label for="very9">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="nine" id="two9" value="2" /> <label for="two9">2</label> <br/>-->
-                    <!--<input type="radio" name="nine" id="three9" value="3" /> <label for="three9">3</label> <br/>-->
-                    <!--<input type="radio" name="nine" id="four9" value="4" /> <label for="four9">4</label> <br/>-->
-                    <!--<input type="radio" name="nine" id="five9" value="5" /> <label for="five9">5</label> <br/>-->
-                    <!--<input type="radio" name="nine" id="six9" value="6" /> <label for="six9">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    9. I relied on my own values, beliefs, and what I already know in order to interpret what was going on and understand this episode.<br/><br/>
+
+                    9. Generic question number nine.<br/><br/>
                     <input type="radio" name="nine" id="nine1" value="0" /> <label for="nine1">Not at all - 0</label> <br/>
                     <input type="radio" name="nine" id="nine2" value="1" /> <label for="nine2">Very Little - 1</label> <br/>
                     <input type="radio" name="nine" id="nine3" value="2" /> <label for="nine3">2</label> <br/>
@@ -186,16 +133,8 @@
                     <input type="radio" name="nine" id="nine6" value="5" /> <label for="nine6">5</label> <br/>
                     <input type="radio" name="nine" id="nine7" value="6" /> <label for="nine7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--10. Throughout this episode, I behaved according to my own training, habits, customs, and routines. <p>-->
-                    <!--<input type="radio" name="ten" id="not10" value="0" /> <label for="not10">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="ten" id="very10" value="1" /> <label for="very10">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="ten" id="two10" value="2" /> <label for="two10">2</label> <br/>-->
-                    <!--<input type="radio" name="ten" id="three10" value="3" /> <label for="three10">3</label> <br/>-->
-                    <!--<input type="radio" name="ten" id="four10" value="4" /> <label for="four10">4</label> <br/>-->
-                    <!--<input type="radio" name="ten" id="five10" value="5" /> <label for="five10">5</label> <br/>-->
-                    <!--<input type="radio" name="ten" id="six10" value="6" /> <label for="six10">To a great extent -6</label> <br/>-->
-                    <!--<p>-->
-                    10. Throughout this episode, I behaved according to my own training, habits, customs, and routines. <br/>
+
+                    10. Generic question number ten. <br/>
                     <input type="radio" name="ten" id="ten1" value="0" /> <label for="ten1">Not at all - 0</label> <br/>
                     <input type="radio" name="ten" id="ten2" value="1" /> <label for="ten2">Very Little - 1</label> <br/>
                     <input type="radio" name="ten" id="ten3" value="2" /> <label for="ten3">2</label> <br/>
@@ -204,16 +143,8 @@
                     <input type="radio" name="ten" id="ten6" value="5" /> <label for="ten6">5</label> <br/>
                     <input type="radio" name="ten" id="ten7" value="6" /> <label for="ten7">To a great extent -6</label> <br/>
                     <br/>
-                    <!--11. Following the cues from the situation, I adapted my behavior to try to blend in and act like everyone else in this episode. <p>-->
-                    <!--<input type="radio" name="eleven" id="not11" value="0" /> <label for="not11">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="eleven" id="very11" value="1" /> <label for="very11">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="eleven" id="two11" value="2" /> <label for="two11">2</label> <br/>-->
-                    <!--<input type="radio" name="eleven" id="three11" value="3" /> <label for="three11">3</label> <br/>-->
-                    <!--<input type="radio" name="eleven" id="four11" value="4" /> <label for="four11">4</label> <br/>-->
-                    <!--<input type="radio" name="eleven" id="five11" value="5" /> <label for="five11">5</label> <br/>-->
-                    <!--<input type="radio" name="eleven" id="six11" value="6" /> <label for="six11">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    11. Following the cues from the situation, I adapted my behavior to try to blend in and act like everyone else in this episode. <br/><br/>
+
+                    11. Generic question number eleven. <br/><br/>
                     <input type="radio" name="eleven" id="eleven1" value="0" /> <label for="eleven1">Not at all - 0</label> <br/>
                     <input type="radio" name="eleven" id="eleven2" value="1" /> <label for="eleven2">Very Little - 1</label> <br/>
                     <input type="radio" name="eleven" id="eleven3" value="2" /> <label for="eleven3">2</label> <br/>
@@ -222,16 +153,8 @@
                     <input type="radio" name="eleven" id="eleven6" value="5" /> <label for="eleven6">5</label> <br/>
                     <input type="radio" name="eleven" id="eleven7" value="6" /> <label for="eleven7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--12. My experience in this episode prompted me to re-evaluate or revise my overall assignment goal(s) to something more personalized and appropriate to my situation. <p>-->
-                    <!--<input type="radio" name="twelve" id="not12" value="0" /> <label for="not12">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="twelve" id="very12" value="1" /> <label for="very12">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="twelve" id="two12" value="2" /> <label for="two12">2</label> <br/>-->
-                    <!--<input type="radio" name="twelve" id="three12" value="3" /> <label for="three12">3</label> <br/>-->
-                    <!--<input type="radio" name="twelve" id="four12" value="4" /> <label for="four12">4</label> <br/>-->
-                    <!--<input type="radio" name="twelve" id="five12" value="5" /> <label for="five12">5</label> <br/>-->
-                    <!--<input type="radio" name="twelve" id="six12" value="6" /> <label for="six12">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    12. My experience in this episode prompted me to re-evaluate or revise my overall assignment goal(s) to something more personalized and appropriate to my situation. <br/><br/>
+
+                    12. Generic question number twelve. <br/><br/>
                     <input type="radio" name="twelve" id="twelve1" value="0" /> <label for="twelve1">Not at all - 0</label> <br/>
                     <input type="radio" name="twelve" id="twelve2" value="1" /> <label for="twelve2">Very Little - 1</label> <br/>
                     <input type="radio" name="twelve" id="twelve3" value="2" /> <label for="twelve3">2</label> <br/>
@@ -240,16 +163,8 @@
                     <input type="radio" name="twelve" id="twelve6" value="5" /> <label for="twelve6">5</label> <br/>
                     <input type="radio" name="twelve" id="twelve7" value="6" /> <label for="twelve7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--13. My commitment to my overall assigned goal(s) changed because of situational pressures or the specific circumstances of this episode. <p>-->
-                    <!--<input type="radio" name="thirteen" id="not13" value="0" /> <label for="not13">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="thirteen" id="very13" value="1" /> <label for="very13">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="thirteen" id="two13" value="2" /> <label for="two13">2</label> <br/>-->
-                    <!--<input type="radio" name="thirteen" id="three13" value="3" /> <label for="three13">3</label> <br/>-->
-                    <!--<input type="radio" name="thirteen" id="four13" value="4" /> <label for="four13">4</label> <br/>-->
-                    <!--<input type="radio" name="thirteen" id="five13" value="5" /> <label for="five13">5</label> <br/>-->
-                    <!--<input type="radio" name="thirteen" id="six13" value="6" /> <label for="six13">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    13. My commitment to my overall assigned goal(s) changed because of situational pressures or the specific circumstances of this episode. <br/><br/>
+
+                    13. Generic question number thirteen. <br/><br/>
                     <input type="radio" name="thirteen" id="thirteen1" value="0" /> <label for="thirteen1">Not at all - 0</label> <br/>
                     <input type="radio" name="thirteen" id="thirteen2" value="1" /> <label for="thirteen2">Very Little - 1</label> <br/>
                     <input type="radio" name="thirteen" id="thirteen3" value="2" /> <label for="thirteen3">2</label> <br/>
@@ -258,16 +173,8 @@
                     <input type="radio" name="thirteen" id="thirteen6" value="5" /> <label for="thirteen6">5</label> <br/>
                     <input type="radio" name="thirteen" id="thirteen7" value="6" /> <label for="thirteen7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--14. In order to feel more comfortable during this episode, I tried to change the situation and/or seek information and support from those around me at the time.-->
-                    <!--<input type="radio" name="fourteen" id="not14" value="0" /> <label for="not14">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="fourteen" id="very14" value="1" /> <label for="very14">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="fourteen" id="two14" value="2" /> <label for="two14">2</label> <br/>-->
-                    <!--<input type="radio" name="fourteen" id="three14" value="3" /> <label for="three14">3</label> <br/>-->
-                    <!--<input type="radio" name="fourteen" id="four14" value="4" /> <label for="four14">4</label> <br/>-->
-                    <!--<input type="radio" name="fourteen" id="five14" value="5" /> <label for="five14">5</label> <br/>-->
-                    <!--<input type="radio" name="fourteen" id="six14" value="6" /> <label for="six14">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    14. In order to feel more comfortable during this episode, I tried to change the situation and/or seek information and support from those around me at the time. <br/><br/>
+
+                    14. Generic question number fourteen. <br/><br/>
                     <input type="radio" name="fourteen" id="fourteen1" value="0" /> <label for="fourteen1">Not at all - 0</label> <br/>
                     <input type="radio" name="fourteen" id="fourteen2" value="1" /> <label for="fourteen2">Very Little - 1</label> <br/>
                     <input type="radio" name="fourteen" id="fourteen3" value="2" /> <label for="fourteen3">2</label> <br/>
@@ -276,16 +183,8 @@
                     <input type="radio" name="fourteen" id="fourteen6" value="5" /> <label for="fourteen6">5</label> <br/>
                     <input type="radio" name="fourteen" id="fourteen7" value="6" /> <label for="fourteen7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--15. I tried to ignore anything that made me uncomfortable in this episode; I endured this episode until it passed. <p>-->
-                    <!--<input type="radio" name="fifteen" id="not15" value="0" /> <label for="not15">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="fifteen" id="very15" value="1" /> <label for="very15">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="fifteen" id="two15" value="2" /> <label for="two15">2</label> <br/>-->
-                    <!--<input type="radio" name="fifteen" id="three15" value="3" /> <label for="three15">3</label> <br/>-->
-                    <!--<input type="radio" name="fifteen" id="four15" value="4" /> <label for="four15">4</label> <br/>-->
-                    <!--<input type="radio" name="fifteen" id="five15" value="5" /> <label for="five15">5</label> <br/>-->
-                    <!--<input type="radio" name="fifteen" id="six15" value="6" /> <label for="six15">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    15. I tried to ignore anything that made me uncomfortable in this episode; I endured this episode until it passed. <br/><br/>
+
+                    15. Generic question number fifteen. <br/><br/>
                     <input type="radio" name="fifteen" id="fifteen1" value="0" /> <label for="fifteen1">Not at all - 0</label> <br/>
                     <input type="radio" name="fifteen" id="fifteen2" value="1" /> <label for="fifteen2">Very Little - 1</label> <br/>
                     <input type="radio" name="fifteen" id="fifteen3" value="2" /> <label for="fifteen3">2</label> <br/>
@@ -294,16 +193,8 @@
                     <input type="radio" name="fifteen" id="fifteen6" value="5" /> <label for="fifteen6">5</label> <br/>
                     <input type="radio" name="fifteen" id="fifteen7" value="6" /> <label for="fifteen7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--16. I reacted emotionally to this episode. <p>-->
-                    <!--<input type="radio" name="sixteen" id="not16" value="0" /> <label for="not16">Not at all - 0</label> <br/>-->
-                    <!--<input type="radio" name="sixteen" id="very16" value="1" /> <label for="very16">Very Little - 1</label> <br/>-->
-                    <!--<input type="radio" name="sixteen" id="two16" value="2" /> <label for="two16">2</label> <br/>-->
-                    <!--<input type="radio" name="sixteen" id="three16" value="3" /> <label for="three16">3</label> <br/>-->
-                    <!--<input type="radio" name="sixteen" id="four16" value="4" /> <label for="four16">4</label> <br/>-->
-                    <!--<input type="radio" name="sixteen" id="five16" value="5" /> <label for="five16">5</label> <br/>-->
-                    <!--<input type="radio" name="sixteen" id="six16" value="6" /> <label for="six16">To a great extent - 6</label> <br/>-->
-                    <!--<p>-->
-                    16. I reacted emotionally to this episode. <br/><br/>
+
+                    16. Generic question number sixteen. <br/><br/>
                     <input type="radio" name="sixteen" id="sixteen1" value="0" /> <label for="sixteen1">Not at all - 0</label> <br/>
                     <input type="radio" name="sixteen" id="sixteen2" value="1" /> <label for="sixteen2">Very Little - 1</label> <br/>
                     <input type="radio" name="sixteen" id="sixteen3" value="2" /> <label for="sixteen3">2</label> <br/>
@@ -312,12 +203,9 @@
                     <input type="radio" name="sixteen" id="sixteen6" value="5" /> <label for="sixteen6">5</label> <br/>
                     <input type="radio" name="sixteen" id="sixteen7" value="6" /> <label for="sixteen7">To a great extent - 6</label> <br/>
                     <br/>
-                    <!--DR - Fixed coding issue and simplified/-->
 
-					<!--DR - Changed input type from button to submit-->
-					<!--<input type="button" name="submit"	value="Submit"  />-->
 					<input type="submit" value="Submit" />
-					<!--DR - Changed input type from button to submit/-->
+
 
 				</form>
 
