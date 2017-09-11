@@ -6,6 +6,7 @@
 	Edited on 6/11/2017 ML for PSU SWENG500
 
 	Edited on 6/30/2017 ML -- added script tag to call es_submit.js, added onclick event to submit button
+	Edited on 9/6/2017 JH -- Sanitized the form not to reveal proprietary information.
 -->
 <html xmlns="http://www.w3.org/1999/html">
 	<head>
@@ -39,17 +40,8 @@
 		<!-- Main -->
 
 
-
-		<!-- 6/2/2017 - ML - this section of code called database results and was used to pull data from the db to ensure working submissions  -->
-
-		<!-- 6/2/2017 - ML - removed this section of code out now that the page submits information correctly -->
-
-        <!-- 6/2/2017 - ML - end of the section of code called database results and was used to pull data from the db to ensure working submissions  -->
-
-
-
 		<section id="main" class="wrapper">
-				<div class="inner">
+				<div class="inner">               <!-- this div isnt closed, but may not have ever been -->
 					<header class="align-center">
 						<h2>Emotional State Survey</h2>
 						<p>Welcome to the Emotional State Survey </p>
@@ -58,56 +50,30 @@
 				<!-- Content -->
 				<!-- ML:edited to reflect the intro for episodes and the emotional state survey -->
 					<h2 id="content">Episodes and Emotional State</h2>
-					<p>Episodes are coherent, thematically organized events in a person's stream of experience.  Episodes are associated with specific people, occurrences, and goals (broadly defined in terms of intentions). This survey is designed to collect your emotional state during an episode. </p>
+					<p>Episodes were defined here to explain to survey respondents about the survey.  The explanations here have been made generic out of respect for other researcher's intellectual property.  The example here is an example of the code we can write, not to infringe on others IP where the respondent entered text. </p>
 					<div class="row">
 						<div class="6u 12u$(small)">
 							<h3>Disorientation</h3>
 							<p>Disorientation is experienced when:</p>
 							<ul>
-											<li>We feel dissonance (psychological discomfort) because our behaviors do not match our values, beliefs, attitudes, or norms.</li>
-											<li>We struggle to make sense of a situation and we feel confused.</li>
-											<li>Our expectations about what is supposed to happen or how people are supposed to respond are disconfirmed.</li>
+											<li>Explanation number 1 from the Psychology Department.</li>
+											<li>Example number 2 from the Psychology Department.</li>
+											<li>Scenario number 3 from the Psychology Department.</li>
 							</ul>
 						</div>
 						<div class="6u$ 12u$(small)">
 							<h3>Extra-cultural Disorientation</h3>
 							<p>Extra-cultural disorientation refers to:</p>
 							<ul>
-											<li>episodes in which we attribute the disorientation we feel to our “foreignness” </li>
-											<li>disorienting episodes that remind us of our “foreignness,” , that we are not “from here” or a member of the cultural “in-group”</li>
-											<li>the realization that we lack a cultural frame of reference to effectively understand what is happening and/or anticipate what is likely to happen next when we are new to a cultural group</li>
+											<li>Explanation number 1 from the Psychology Department </li>
+											<li>Example number 2 from the Psychology Department</li>
+											<li>Scenario number 3 from the Psychology Department</li>
 							</ul>
 						</div>
 					</div>
-
+         <!--       </div>    Most likely place, but it may need to go elsewhere to close  -->
 				<hr class="major" />
 
-
-				<!--&lt;!&ndash; ML: here is where the survey begins edited on 7/1/2017 &ndash;&gt;-->
-				<!--&lt;!&ndash; ML: starting with a question or statement, a text field and a submit button-->
-                    <!--and edited to include the boxes for Name and Short description-->
-				<!--&ndash;&gt;-->
-				<!--<h2 id="content">Survey Form</h2>-->
-					<!--<form method="post" action="/emotionalstatesurvey">-->
-					<!--<p>For this survey, enter a short narrative of the episode you experienced. Be descriptive in illustrating what took place in the episode. </p>-->
-                    <!--<input type="text" name="ESname" id="ESname" value="" placeholder="Name" />-->
-					<!--<br>-->
-					<!--<input type="text" name="ESIDnumber" id="ESIDNumber" value="" placeholder="ID Number" />-->
-					<!--<br>-->
-					<!--<input type="text" name="ESsurveynumber" id="ESsurveynumber" placeholder="Survey Number"  />-->
-					<!--<br>-->
-                    <!--<input type="text" name="ESdescription" id="ESdescription" value="" placeholder="Short name for this episode" />-->
-                    <!--<br>-->
-					<!--<textarea name="message" id="ESmessage" placeholder="Describe your episode here" rows="6"></textarea>-->
-					<!--<br>-->
-                    <!--<input type="button" value="Submit Survey" />-->
-
-
-					<!--</form>-->
-
-
-					<!--<hr class="major" />-->
-				<!--&lt;!&ndash; ML: ends section for a question, a text field and a submit button &ndash;&gt;						-->
 
 
                     <!-- Form -->
