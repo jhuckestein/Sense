@@ -121,72 +121,15 @@ app.get('/surveyreports', function (request, response) {
     response.render('pages/surveyreports');
 });
 
+app.get('/adminLoginPage', function (request, response) {
+    response.render('pages/adminLoginPage');
+});
+
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
 });
 
 var pg = require('pg');
-
-// app.get('/dblogic', function (request, response) {
-//   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//     client.query('SELECT * FROM test_table', function(err, result) {
-//       done();
-//       if (err)
-//        { console.error(err); response.send("Error " + err); }
-//       else
-//        { response.render('pages/dblogic', {results: result.rows} ); }
-//     });
-//   });
-// });
-
-// app.get('/dblogicins', function (request, response) {
-//     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//         client.query('INSERT INTO test_table(id, name) VALUES($1, $2)', [request.param('id'), request.param('name')], function(err, result) {
-//             done();
-//             if (err)
-//             { console.error(err); response.send("Error " + err); }
-//             else
-//             { response.render('pages/dblogic', {results: result.rows} ); }
-//         });
-//     });
-// });
-
-// app.get('/dblogic', function(request, response) {
-//     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//
-//             client.query('SELECT * FROM test_table', function(err, result) {
-//                 done();
-//                 if (err) {
-//                     console.error(err); response.send("Error " + err);
-//                 } else {
-//                     response.render('pages/dblogic', {results: result.rows} );
-//                 }
-//             });
-//
-//         });
-//     response.render('pages/dblogic');
-// });
-//
-// app.get('/dblogicquery', function (request, response) {
-//     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//         client.query('INSERT INTO test_table(id, name) VALUES($1, $2)', [request.param('id'), request.param('name')], function(err, result) {
-//             done();
-//             if (err) {
-//                 console.error(err); response.send("Error " + err);
-//             }
-//             else {
-//                 client.query('SELECT * FROM test_table', function(err, result) {
-//                     done();
-//                     if (err) {
-//                         console.error(err); response.send("Error " + err);
-//                     } else {
-//                         response.render('pages/dblogic', {results: result.rows} );
-//                     }
-//                 });
-//             }
-//         });
-//     });
-// });
 
 app.get('/dblogic', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
@@ -372,50 +315,7 @@ app.get('/instructorSearch', function (request, response) {
         }
     });
 });
-//respondentSearch code for reports starts here
 
-//app.get('/respondentSearch', function (request, response) {
-    //There are six different retrieval forms, so use if statements to determine which was executed
-    //and then call the correct searchResultsTemplate based rendering.
-   /*pg.connect(process.env.DATABASE_URL, function (err, client, done) {
-
-        if (typeof request.param('exe7') != 'undefined') {
-            //Call the render page searchResultsRespondent1 to do query and output the results for emotional survey.
-            client.query('SELECT * FROM es_table', function (err, result) {
-                done();
-                if (err) {
-                    console.error(err);
-                    response.send("Error " + err);
-                } else {
-                    response.render('pages/searchResultsRespondent1', {results: result.rows});
-                }
-            });
-            /*
-        } else if (typeof request.param('exe8') != 'undefined') {
-            //Call the render page searchResultsRespondent2 to do query and output the results for episode survey.
-            client.query('SELECT * FROM eps_table', function (err, result) {
-                done();
-                if (err) {
-                    console.error(err);
-                    response.send("Error " + err);
-                } else {
-                    response.render('pages/searchResultsRespondent2', {results: result.rows});
-                }
-            });
-        } else if (typeof request.param('exe9') != 'undefined') {
-            //Call the render page searchResultsRespondent3 to do query and output the results for adjustment survey.
-            client.query('SELECT * FROM eps_table', function (err, result) {
-                done();
-                if (err) {
-                    console.error(err);
-                    response.send("Error " + err);
-                } else {
-                    response.render('pages/searchResultsRespondent3', {results: result.rows});
-                }
-            });
-        }
-        });
-*/
 
 //TODO: Enable post operation for database updates/inserts
     var bodyParser = require('body-parser');
