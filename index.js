@@ -512,5 +512,5 @@ app.post('/administrativeTasksLogin', function (request, response) {
 //This next block is used when the admin has successfully logged-in via administrativeTasksLogin
 //and now can see the page with forms for various admin tasks.
 app.get('/administratives', function (request, response) {
-    response.render('pages/admininstratives');
+    response.render('pages/administratives');
 });
