@@ -478,9 +478,8 @@ app.get('/instructorSearch', function (request, response) {
 app.post('/administrativeTasksLogin', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
 
-        //To Do- does this make sense to have the userauth_table or should I have another admin table?
-        //Here I'm going to set this up as select auth from adminauth_table
-        client.query('SELECT userrole FROM adminauth_table WHERE adminname=$1 AND password=$2', [request.body.adminname, request.body.password], function (err, result) {
+        //Here I'm going to set this up as select auth from adminauth_table and need auth column in table
+        client.query('SELECT auth FROM adminauth_table WHERE adminname=$1 AND password=$2', [request.body.adminname, request.body.password], function (err, result) {
             done();
             if (err) {
                 console.error(err);
@@ -491,22 +490,27 @@ app.post('/administrativeTasksLogin', function (request, response) {
                 //The response.render should be to administratives.ejs if successful, and back to login
                 //if the
                 if (typeof result.rows[0] != 'undefined') {
-                    if (result.rows[0].userrole == 'student') {    //This will change to if auth = "authorized"
-                        // response.send('Student');
-                        response.render('pages/drespondentsearch');  //This becomes administratives.ejs and use instructorSearch as example
-                    } else if (result.rows[0].userrole == 'faculty') {  //This block will be redundant and removed
-                        // response.send('Faculty');
-                        response.render('pages/instructorSearch');
+                    if (result.rows[0].auth == 'authorized') {    //This will change to if auth = "authorized"
+                        response.render('pages/administratives');  //This becomes administratives.ejs and use instructorSearch as example
+
+                  //  } else if (result.rows[0].auth == 'faculty') {  //This block will be redundant and removed
+                  //      // response.send('Faculty');
+                  //      response.render('pages/instructorSearch');
                     } else {                                      //This block is if they are not authorized, or no match
                         // response.send('No Match');
-                        response.render('pages/adminLoginPage');  //This render changes to administrativeTasksLogin
+                        response.render('pages/adminLoginPage');
                     }
                 } else {
                     // response.send('Undefined');
-                    response.render('pages/adminLoginPage');    //This render changes to administrativeTasksLogin as well
+                    response.render('pages/adminLoginPage');
                 }
             }
         });
     });
 });
 
+//This next block is used when the admin has successfully logged-in via administrativeTasksLogin
+//and now can see the page with forms for various admin tasks.
+app.get('/administratives', function (request, response) {
+    response.render('pages/admininstratives');
+});
