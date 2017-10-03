@@ -21,20 +21,6 @@ app.get('/elements', function (request, response) {
     response.render('pages/elements');
 });
 
-//app.get('/episodesurvey', function(request, response) {
-//  response.render('pages/episodesurvey');
-//});
-
-// DR - commenting out original app.get for adjustmentresponsesurvey (Start)
-// app.get('/adjustmentresponsesurvey', function(request, response) {
-//   response.render('pages/adjustmentresponsesurvey');
-// });
-// DR - commenting out original app.get for adjustmentresponsesurvey (End)
-
-// ML - commenting out original app.get for emotionalstatesurvey
-// app.get('/emotionalstatesurvey', function(request, response) {
-//   response.render('pages/emotionalstatesurvey');
-// });
 
 // ML - new app.get for emotionalstatesurvey with function to connect to postgres
 app.get('/emotionalstatesurvey', function (request, response) {
@@ -349,11 +335,6 @@ app.get('/instructorSearch', function (request, response) {
                 }
             });
         });
-
-        // var username = request.body.username;
-        // var password = request.body.password;
-        //
-        // response.send(username + ' ' + password);
     });
 
 //TODO: Add query logic
@@ -492,5 +473,40 @@ app.get('/instructorSearch', function (request, response) {
         response.render('pages/respondentSearch');
     });
 
+//This is here to allow the Admin to authenticate and is called from the adminLoginPage.ejs
+//JH - 9-26-2017
+app.post('/administrativeTasksLogin', function (request, response) {
+    pg.connect(process.env.DATABASE_URL, function (err, client, done) {
 
+        //To Do- does this make sense to have the userauth_table or should I have another admin table?
+        //Here I'm going to set this up as select auth from adminauth_table
+        client.query('SELECT userrole FROM adminauth_table WHERE adminname=$1 AND password=$2', [request.body.adminname, request.body.password], function (err, result) {
+            done();
+            if (err) {
+                console.error(err);
+                response.send("Error " + err);
+            } else {
+
+                //To Do - If there is not an error in query, then we end up here if the admin exists.
+                //The response.render should be to administratives.ejs if successful, and back to login
+                //if the
+                if (typeof result.rows[0] != 'undefined') {
+                    if (result.rows[0].userrole == 'student') {    //This will change to if auth = "authorized"
+                        // response.send('Student');
+                        response.render('pages/drespondentsearch');  //This becomes administratives.ejs and use instructorSearch as example
+                    } else if (result.rows[0].userrole == 'faculty') {  //This block will be redundant and removed
+                        // response.send('Faculty');
+                        response.render('pages/instructorSearch');
+                    } else {                                      //This block is if they are not authorized, or no match
+                        // response.send('No Match');
+                        response.render('pages/adminLoginPage');  //This render changes to administrativeTasksLogin
+                    }
+                } else {
+                    // response.send('Undefined');
+                    response.render('pages/adminLoginPage');    //This render changes to administrativeTasksLogin as well
+                }
+            }
+        });
+    });
+});
 
