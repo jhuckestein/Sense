@@ -493,9 +493,6 @@ app.post('/administrativeTasksLogin', function (request, response) {
                     if (result.rows[0].auth == 'authorized') {    //This will change to if auth = "authorized"
                         response.render('pages/administratives');  //This becomes administratives.ejs and use instructorSearch as example
 
-                  //  } else if (result.rows[0].auth == 'faculty') {  //This block will be redundant and removed
-                  //      // response.send('Faculty');
-                  //      response.render('pages/instructorSearch');
                     } else {                                      //This block is if they are not authorized, or no match
                         // response.send('No Match');
                         response.render('pages/adminLoginPage');
