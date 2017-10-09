@@ -70,8 +70,19 @@
                     <input type="submit" class="btn btn-primary adminRequest2Button" value="Submit" />
                 </form>
             </div>
-            <!-- This is where the removed survey 3 was and is no longer used. -->
-            <!-- Break -->
+            <div class="4u$ 12u$(small)">
+                <h3>Update/Reset a User Password</h3>
+                <p>Reset the password for a user.</p>
+                <form method="get" action="/administrativeRequest" class="adminRequest3">
+                    <input type="checkbox" id="exe3" name="exe3" required>
+                    <label for="exe3">Execute this query</label><br>
+                    Enter the Username and new password:<br>
+                    <input type="text" name="username" id="username" value="" placeholder="User Name" required /><br/>
+                    <input type="text" name="userpassword" id="userpassword" value="" placeholder="New Password" required /><br/>
+                    <br/>
+                    <input type="submit" class="btn btn-primary adminRequest3Button" value="Submit" />
+                </form>
+            </div>
             <div class="4u 12u$(medium)">
                 <h3>Retrieve All User-IDs</h3>
                 <p>List all registered users.</p>
