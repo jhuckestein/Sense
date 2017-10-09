@@ -544,6 +544,8 @@ app.get('/administrativeRequest', function (request, response) {
             });
         } else if (typeof request.param('exe3') != 'undefined') {
             //This is the case where the admin updates an existing user's password to a new pwd.
+            //Need to consider checking the password string for obvious issues, then do an
+            //update to the userauth_table based upon username.  No administrativeAction2.ejs yet.
             response.render('pages/administratives');
         } else if (typeof request.param('exe4') != 'undefined') {
             //Execute Retrieve all userIDs using searchResultsInstr4
@@ -632,4 +634,8 @@ app.get('/administrativeRequest', function (request, response) {
 
 app.get('/administrativeAction1', function (request, response) {
     response.render('pages/administrativeAction1', {results: result.rows});
+});
+
+app.get('/administrativeAction2', function (request, response) {
+    response.render('pages/administrativeAction2', {results: result.rows});
 });
