@@ -522,16 +522,6 @@ app.get('/administrativeRequest', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
 
         if (typeof request.param('exe1') != 'undefined') {
-            //Call the render page administrativeAction1 to do query and output the UserIDs.
-            /*client.query('SELECT * FROM es_table', function (err, result) {
-                done();
-                if (err) {
-                    console.error(err);
-                    response.send("Error " + err);
-                } else {
-                    response.render('pages/searchResultsInstr1', {results: result.rows});
-                }
-            });  */
             client.query('SELECT * FROM user_table', function (err, result) {
                 done();
                 if (err) {
@@ -542,14 +532,14 @@ app.get('/administrativeRequest', function (request, response) {
                 }
             });
         } else if (typeof request.param('exe2') != 'undefined') {
-            //Call the render page searchResultsInstr2 to do query and output the results for episode survey.
-            client.query('SELECT * FROM eps_table', function (err, result) {
+            //This is the case of all user authorization etc.
+            client.query('SELECT * FROM userauth_table', function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
                     response.send("Error " + err);
                 } else {
-                    response.render('pages/searchResultsInstr2', {results: result.rows});
+                    response.render('pages/administrativeAction2', {results: result.rows});
                 }
             });
         } else if (typeof request.param('exe3') != 'undefined') {
