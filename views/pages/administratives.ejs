@@ -75,7 +75,7 @@
                 <p>Reset the password for a user.</p>
                 <form method="get" action="/administrativeRequest" class="adminRequest3">
                     <input type="checkbox" id="exe3" name="exe3" required>
-                    <label for="exe3">Execute this query</label><br>
+                    <label for="exe3">Execute this action</label><br>
                     Enter the Username and new password:<br>
                     <input type="text" name="username" id="username" value="" placeholder="User Name" required /><br/>
                     <input type="text" name="userpassword" id="userpassword" value="" placeholder="New Password" required /><br/>
@@ -86,10 +86,20 @@
             <div class="4u 12u$(medium)">
                 <h3>Add a New User</h3>
                 <p>Create a new user.</p>
-                <form method="get" action="/instructorSearch" class="instRetrieve4">
+                <form method="get" action="/administrativeRequest" class="adminRequest4">
                     <input type="checkbox" id="exe4" name="exe4" required>
-                    <label for="exe4">Execute this query</label><br>
-                    <input type="submit" class="btn btn-primary instRetrieve4Button" value="Submit" />
+                    <label for="exe4">Execute this action</label><br>
+                    Enter the following fields:<br>
+                    <input type="text" name="usernumber" id="usernumber" value="" placeholder="User Number" required /><br/>
+                    <input type="text" name="userfirstname" id="userfirstname" value="" placeholder="User First Name" required /><br/>
+                    <input type="text" name="userlastname" id="userlastname" value="" placeholder="User Last Name" required /><br/>
+                    <input type="text" name="useremail" id="useremail" value="" placeholder="User Email" required /><br/>
+                    <input type="text" name="useraddress" id="useraddress" value="" placeholder="User Address" required /><br/>
+                    <input type="text" name="userstreet" id="userstreet" value="" placeholder="Street Name" required /><br/>
+                    <input type="text" name="usercity" id="usercity" value="" placeholder="City" required /><br/>
+                    <input type="text" name="userstate" id="userstate" value="" placeholder="State" required /><br/>
+                    <input type="text" name="userzip" id="userzip" value="" placeholder="Zip Code" required /><br/>
+                    <input type="submit" class="btn btn-primary adminRequest4Button" value="Submit" />
                 </form>
             </div>
             <div class="4u 12u$(medium)">
