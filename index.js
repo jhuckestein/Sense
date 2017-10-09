@@ -490,8 +490,8 @@ app.post('/administrativeTasksLogin', function (request, response) {
                 //The response.render should be to administratives.ejs if successful, and back to login
                 //if the
                 if (typeof result.rows[0] != 'undefined') {
-                    if (result.rows[0].auth == 'authorized') {    //This will change to if auth = "authorized"
-                        response.render('pages/administratives');  //This becomes administratives.ejs and use instructorSearch as example
+                    if (result.rows[0].auth == 'authorized') {
+                        response.render('pages/administratives');
 
                     } else {                                      //This block is if they are not authorized, or no match
                         // response.send('No Match');
@@ -510,4 +510,136 @@ app.post('/administrativeTasksLogin', function (request, response) {
 //and now can see the page with forms for various admin tasks.
 app.get('/administratives', function (request, response) {
     response.render('pages/administratives');
+});
+
+//This next block used instructorSearch as an example and is called from administratives.ejs once
+//the administrator has logged in.  This script determines what administrative task was requested
+//and renders the correct administrativeActionX.ejs page as the output.  Created Oct. 9, 2017 JH
+
+app.get('/administrativeRequest', function (request, response) {
+    //There are five different administrative tasks identified so far, so use if statements to determine which was executed
+    //and then call the correct administrativeActionX.ejs based rendering.
+    pg.connect(process.env.DATABASE_URL, function (err, client, done) {
+
+        if (typeof request.param('exe1') != 'undefined') {
+            //Call the render page administrativeAction1 to do query and output the UserIDs.
+            /*client.query('SELECT * FROM es_table', function (err, result) {
+                done();
+                if (err) {
+                    console.error(err);
+                    response.send("Error " + err);
+                } else {
+                    response.render('pages/searchResultsInstr1', {results: result.rows});
+                }
+            });  */
+            client.query('SELECT * FROM user_table', function (err, result) {
+                done();
+                if (err) {
+                    console.error(err);
+                    response.send("Error " + err);
+                } else {
+                    response.render('pages/administrativeAction1', {results: result.rows});    //Use searchResultsInstr4 as template
+                }
+            });
+        } else if (typeof request.param('exe2') != 'undefined') {
+            //Call the render page searchResultsInstr2 to do query and output the results for episode survey.
+            client.query('SELECT * FROM eps_table', function (err, result) {
+                done();
+                if (err) {
+                    console.error(err);
+                    response.send("Error " + err);
+                } else {
+                    response.render('pages/searchResultsInstr2', {results: result.rows});
+                }
+            });
+        } else if (typeof request.param('exe3') != 'undefined') {
+            //Execute All surveys all respondents for a date range
+            response.render('pages/instructorSearch');
+        } else if (typeof request.param('exe4') != 'undefined') {
+            //Execute Retrieve all userIDs using searchResultsInstr4
+            client.query('SELECT * FROM user_table', function (err, result) {
+                done();
+                if (err) {
+                    console.error(err);
+                    response.send("Error " + err);
+                } else {
+                    response.render('pages/searchResultsInstr4', {results: result.rows});
+                }
+            });
+        } else if (typeof request.param('exe5') != 'undefined') {
+            //Execute Retrieve all adjustment responses using searchResultsInstr5
+            client.query('SELECT * FROM adresp_table', function (err, result) {
+                done();
+                if (err) {
+                    console.error(err);
+                    response.send("Error " + err);
+                } else {
+                    response.render('pages/searchResultsInstr5', {results: result.rows});
+                }
+            });
+        } else if (typeof request.param('exe6') != 'undefined') {
+            //Determine which survey type was requested, then initiate the appropriate query.
+
+            if (request.query.six == 'Episode Surveys') {
+                client.query('SELECT * FROM eps_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
+                    done();
+                    if (err) {
+                        console.error(err);
+                        response.send("Error " + err);
+                    } else {
+                        if (typeof result.rows[0] != 'undefined'){
+                            //If we got results then render the results page which is 62
+                            response.render('pages/searchResultsInstr62', {results: result.rows});
+                        } else {
+                            //If we don't get results then just render the original search page
+                            response.render('pages/instructorSearch');
+                        }
+                    }
+                });
+            } else if (request.query.six == 'Emotional State') {
+                //execute the query with usernumber on emotional state survey table & render
+                client.query('SELECT * FROM es_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
+                    done();
+                    if (err) {
+                        console.error(err);
+                        response.send("Error " + err);
+                    } else {
+                        if (typeof result.rows[0] != 'undefined'){
+                            //If we got results then render the results page which is 62
+                            response.render('pages/searchResultsInstr61', {results: result.rows});
+                        } else {
+                            //If we don't get results then just render the original search page
+                            response.render('pages/instructorSearch');
+                        }
+                    }
+                });
+            } else if (request.query.six == 'Adjustment Response') {
+                //execute the query usernumber:Adjustment response table and render
+                client.query('SELECT * FROM adresp_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
+                    done();
+                    if (err) {
+                        console.error(err);
+                        response.send("Error " + err);
+                    } else {
+                        if (typeof result.rows[0] != 'undefined'){
+                            //If we got results then render the results page which is 62
+                            response.render('pages/searchResultsInstr6', {results: result.rows});
+                        } else {
+                            //If we don't get results then just render the original search page
+                            response.render('pages/instructorSearch');
+                        }
+                    }
+                });
+            }
+        } else {
+            //Just render the page as no query has been initiated.
+            response.render('pages/instructorSearch');
+        }
+    });
+});
+
+//The next block contains all of the administrativeActionX pages
+
+app.get('/administrativeAction1', function (request, response) {
+    response.render('pages/administrativeAction1', {results: result.rows});
 });
