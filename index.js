@@ -543,8 +543,8 @@ app.get('/administrativeRequest', function (request, response) {
                 }
             });
         } else if (typeof request.param('exe3') != 'undefined') {
-            //Execute All surveys all respondents for a date range
-            response.render('pages/instructorSearch');
+            //This is the case where the admin updates an existing user's password to a new pwd.
+            response.render('pages/administratives');
         } else if (typeof request.param('exe4') != 'undefined') {
             //Execute Retrieve all userIDs using searchResultsInstr4
             client.query('SELECT * FROM user_table', function (err, result) {
