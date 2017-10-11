@@ -108,9 +108,12 @@
             <div class="4u 12u$(medium)">
                 <h3>Delete an Existing User</h3>
                 <p>Delete a user.</p>
-                <form method="get" action="/instructorSearch" class="instRetrieve5">
+                <form method="get" action="/administrativeRequest" class="adminRequest5">
                     <input type="checkbox" id="exe5" name="exe5" required>
-                    <label for="exe5">Execute this query</label><br>
+                    <label for="exe5">Execute this action</label><br>
+                    Enter the following fields:<br>
+                    <input type="text" name="usernumber" id="usernumber" value="" placeholder="User Number" required /><br/>
+                    <input type="text" name="username" id="username" value="" placeholder="Username" required /><br/>
                     <input type="submit" class="btn btn-primary instRetrieve5Button" value="Submit" />
                 </form>
             </div>
