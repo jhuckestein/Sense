@@ -122,13 +122,11 @@
                 <p>Change a user's role.</p>
                 <form method="get" action="/instructorSearch" class="instRetrieve6">
                     <input type="checkbox" id="exe6" name="exe6" required>
-                    <label for="exe6">Execute this query</label><br>
+                    <label for="exe6">Execute this action</label><br>
+                    Enter the following fields:<br>
                     <input type="text" name="usernumber" id="usernumber" value="" placeholder="User Number" required /><br/>
-                    Select the type of Survey Records to Return:</br>
-                    <input type="radio" name="six" id="six1" value="Episode Surveys" /> <label for="six1">Episode Surveys</label> <br/>
-                    <input type="radio" name="six" id="six2" value="Emotional State" /> <label for="six2">Emotional State</label> <br/>
-                    <input type="radio" name="six" id="six3" value="Adjustment Response" /> <label for="six3">Adjustment Response</label> <br/>
-                    <br/>
+                    <input type="text" name="username" id="username" value="" placeholder="Username" required /><br/>
+                    <input type="text" name="userrole" id="userrole" value="" placeholder="student / faculty" required /><br/>
                     <input type="submit" class="btn btn-primary instRetrieve5Button" value="Submit" />
                 </form>
             </div>
