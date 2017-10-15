@@ -545,21 +545,60 @@ app.get('/administrativeRequest', function (request, response) {
         } else if (typeof request.param('exe3') != 'undefined') {
             //This is the case where the admin updates an existing user's password to a new pwd.
             //Need to consider checking the password string for obvious issues, then do an
-            //update to the userauth_table based upon username.  No administrativeAction2.ejs yet.
+            //update to the userauth_table based upon username.  No administrativeAction3.ejs yet.
+            //Here I'm working with username and userpassword in userauth_table.
             response.render('pages/administratives');
         } else if (typeof request.param('exe4') != 'undefined') {
-            //Execute Retrieve all userIDs using searchResultsInstr4
-            client.query('SELECT * FROM user_table', function (err, result) {
+            //This one is adding a new user, and hits the userauth and user_table(s).  First, I need
+            //to add the user to the user_table, and logically check to see if the usernumber exists
+            //first.  If not, then add the user to user_table then userauth_table.
+
+            //This is where we put the first set of values into user_table
+            client.query('INSERT INTO user_table(usernumber, userfirstname, userlastname, useremail, useraddress, userstreet, usercity, userstate, userzip) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)', [request.param('usernumber'), request.param('userfirstname'), request.param('userlastname'), request.param('useremail'), request.param('useraddress'), request.param('userstreet'), request.param('usercity'), request.param('userstate'), request.param('userzip')], function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
                     response.send("Error " + err);
-                } else {
-                    response.render('pages/searchResultsInstr4', {results: result.rows});
+                }
+                else {
+                    client.query('SELECT * FROM user_table', function (err, result) {
+                        done();
+                        if (err) {
+                            console.error(err);
+                            response.send("Error " + err);
+                        } else {
+                            response.render('pages/usertableerror', {results: result.rows});
+                        }
+                    });
                 }
             });
+
+            //This is where we put the second set of values into userauth_table
+            client.query('INSERT INTO userauth_table(userrole, username, userpassword, usernumber) VALUES($1, $2, $3, $4)', [request.param('userrole'), request.param('username'), request.param('userpassword'), request.param('usernumber')], function (err, result) {
+                done();
+                if (err) {
+                    console.error(err);
+                    response.send("Error " + err);
+                }
+                else {
+                    client.query('SELECT * FROM userauth_table', function (err, result) {
+                        done();
+                        if (err) {
+                            console.error(err);
+                            response.send("Error " + err);
+                        } else {
+                            response.render('pages/userauthtableerror', {results: result.rows});
+                        }
+                    });
+                }
+            });
+            //If we get to here, both table inserts were good, so render a page
+            //which indicates success and a button back to the administratives page.
+            response.render('pages/administrativeSuccess');
+
         } else if (typeof request.param('exe5') != 'undefined') {
-            //Execute Retrieve all adjustment responses using searchResultsInstr5
+            //Delete an existing user using the usernumber and username, which will be needed to form
+            //delete commands to both userauth_table and user_table in that order.
             client.query('SELECT * FROM adresp_table', function (err, result) {
                 done();
                 if (err) {
@@ -570,8 +609,8 @@ app.get('/administrativeRequest', function (request, response) {
                 }
             });
         } else if (typeof request.param('exe6') != 'undefined') {
-            //Determine which survey type was requested, then initiate the appropriate query.
-
+            //Change an existing user authorization to student or faculty using the usernumber and username
+            //fields.  This will cause an update to the userauth_table only.
             if (request.query.six == 'Episode Surveys') {
                 client.query('SELECT * FROM eps_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
                     done();
@@ -638,4 +677,16 @@ app.get('/administrativeAction1', function (request, response) {
 
 app.get('/administrativeAction2', function (request, response) {
     response.render('pages/administrativeAction2', {results: result.rows});
+});
+
+app.get('/usertableerror', function (request, response) {
+    response.render('pages/usertableerror', {results: result.rows});
+});
+
+app.get('/userauthtableerror', function (request, response) {
+    response.render('pages/userauthtableerror', {results: result.rows});
+});
+
+app.get('/administrativeSuccess', function (request, response) {
+    response.render('pages/administrativeSuccess');
 });
