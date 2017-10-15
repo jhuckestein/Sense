@@ -547,7 +547,7 @@ app.get('/administrativeRequest', function (request, response) {
             //Need to consider checking the password string for obvious issues, then do an
             //update to the userauth_table based upon username.  No administrativeAction3.ejs yet.
             //Here I'm working with username and userpassword in userauth_table.
-            client.query('UPDATE userauth_table SET password=($1) WHERE username=($2)', [request.param('password'), request.param('username')], function (err, result) {
+            client.query('UPDATE userauth_table SET userpassword=($1) WHERE username=($2)', [request.param('userpassword'), request.param('username')], function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
