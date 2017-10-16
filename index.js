@@ -619,60 +619,15 @@ app.get('/administrativeRequest', function (request, response) {
         } else if (typeof request.param('exe6') != 'undefined') {
             //Change an existing user authorization to student or faculty using the usernumber and username
             //fields.  This will cause an update to the userauth_table only.
-            if (request.query.six == 'Episode Surveys') {
-                client.query('SELECT * FROM eps_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
-                    done();
-                    if (err) {
-                        console.error(err);
-                        response.send("Error " + err);
-                    } else {
-                        if (typeof result.rows[0] != 'undefined'){
-                            //If we got results then render the results page which is 62
-                            response.render('pages/searchResultsInstr62', {results: result.rows});
-                        } else {
-                            //If we don't get results then just render the original search page
-                            response.render('pages/instructorSearch');
-                        }
-                    }
-                });
-            } else if (request.query.six == 'Emotional State') {
-                //execute the query with usernumber on emotional state survey table & render
-                client.query('SELECT * FROM es_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
-                    done();
-                    if (err) {
-                        console.error(err);
-                        response.send("Error " + err);
-                    } else {
-                        if (typeof result.rows[0] != 'undefined'){
-                            //If we got results then render the results page which is 62
-                            response.render('pages/searchResultsInstr61', {results: result.rows});
-                        } else {
-                            //If we don't get results then just render the original search page
-                            response.render('pages/instructorSearch');
-                        }
-                    }
-                });
-            } else if (request.query.six == 'Adjustment Response') {
-                //execute the query usernumber:Adjustment response table and render
-                client.query('SELECT * FROM adresp_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
-                    done();
-                    if (err) {
-                        console.error(err);
-                        response.send("Error " + err);
-                    } else {
-                        if (typeof result.rows[0] != 'undefined'){
-                            //If we got results then render the results page which is 62
-                            response.render('pages/searchResultsInstr6', {results: result.rows});
-                        } else {
-                            //If we don't get results then just render the original search page
-                            response.render('pages/instructorSearch');
-                        }
-                    }
-                });
-            }
-        } else {
-            //Just render the page as no query has been initiated.
-            response.render('pages/instructorSearch');
+            client.query('UPDATE userauth_table SET userrole=($1) WHERE username=($2)', [request.param('userrole'), request.param('username')], function (err, result) {
+                done();
+                if (err) {
+                    console.error(err);
+                    response.send("Error " + err);
+                } else {
+                    response.render('pages/administrativeSuccess');
+                }
+            });
         }
     });
 });
