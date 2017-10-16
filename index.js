@@ -607,13 +607,21 @@ app.get('/administrativeRequest', function (request, response) {
         } else if (typeof request.param('exe5') != 'undefined') {
             //Delete an existing user using the usernumber and username, which will be needed to form
             //delete commands to both userauth_table and user_table in that order.
-            client.query('SELECT * FROM adresp_table', function (err, result) {
+            client.query('DELETE FROM userauth_table WHERE username=($1) AND usernumber=($2)', [request.param('username'), request.param('usernumber')], function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
                     response.send("Error " + err);
                 } else {
-                    response.render('pages/searchResultsInstr5', {results: result.rows});
+                    client.query('DELETE FROM user_table WHERE usernumber=($1)', [request.param('usernumber')], function (err, result) {
+                        done();
+                        if (err) {
+                            console.error(err);
+                            response.send("Error " + err);
+                        } else {
+                            response.render('pages/administrativeSuccess');
+                        }
+                    });
                 }
             });
         } else if (typeof request.param('exe6') != 'undefined') {
