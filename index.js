@@ -1,6 +1,15 @@
 var express = require('express');
 var app = express();
 
+//Here is where I'm putting the string checking function for sanity
+function secureString(inputString) {
+    newString1 = inputString.replace( />/g, "x");
+    newString2 = newString1.replace( /!/g, "x");
+    newString3 = newString2.replace( /#/g, "x");
+    newString4 = newString3.replace( /</g, "x");
+    return newString4;
+}
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
