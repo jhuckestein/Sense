@@ -35,10 +35,15 @@ app.get('/elements', function (request, response) {
 app.get('/emotionalstatesurvey', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
         if (typeof request.param('esname') != 'undefined') {
-            //Here is where I'm trying an object to sanitize inputs with
-            var data = {name: request.param('esname')};
+            //Create a data object which will store the requested parameters, and then sanitize each
+            //before inserting into the database to prevent SQL Injection attacks.
+            var data = {name: request.param('esname'), usernumber: request.param('usernumber'), essurveynumber: request.param('essurveynumber'), esdescription: request.param('esdescription'), esepisode: request.param('esepisode')};
             data.name = secureString(data.name);
-            client.query('INSERT INTO es_table (esname, usernumber, essurveynumber, esdescription, esepisode, date) VALUES($1, $2, $3, $4, $5, $6)', [data.name, request.param('usernumber'), request.param('essurveynumber'), request.param('esdescription'), request.param('esepisode'), new Date()], function (err, result) {
+            data.usernumber = secureString(data.usernumber);
+            data.essurveynumber = secureString(data.essurveynumber);
+            data.esdescription = secureString(data.esdescription);
+            data.esepisode = secureString(data.esepisode);
+            client.query('INSERT INTO es_table (esname, usernumber, essurveynumber, esdescription, esepisode, date) VALUES($1, $2, $3, $4, $5, $6)', [data.name, data.usernumber, data.essurveynumber, data.esdescription, data.esepisode, new Date()], function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
