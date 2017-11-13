@@ -80,10 +80,13 @@ app.get('/emotionalstatesurvey', function (request, response) {
 app.get('/adjustmentresponsesurvey', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
         if (typeof request.param('arname') != 'undefined') {
-            // DR - Modified table and column mapping (Start)
-            // ML/WH - changes made to the query line, change idnumber to usernumber (13JUL17)
-            client.query('INSERT INTO adresp_table (arname, usernumber, arsurveynum, ardescription, argmquestion, armsquestion, arfrquestion, arbquestion ) VALUES($1, $2, $3, $4, $5, $6, $7, $8)', [request.param('arname'), request.param('usernumber'), request.param('arsurveynum'), request.param('ardescription'), request.param('one'), request.param('two'), request.param('three'), request.param('four')], function (err, result) {
-                // DR - Modified table and column mapping (Start)
+            // JH - inserting a data object to invoke SQL-injection protection
+            var data = {arname: request.param('arname'), usernumber: request.param('usernumber'), arsurveynum: request.param('arsurveynum'), ardescription: request.param('ardescription')};
+            data.arname = secureString(data.arname);
+            data.usernumber = secureString(data.usernumber);
+            data.arsurveynum = secureString(data.arsurveynum);
+            data.ardescription = secureString(data.ardescription);
+            client.query('INSERT INTO adresp_table (arname, usernumber, arsurveynum, ardescription, argmquestion, armsquestion, arfrquestion, arbquestion ) VALUES($1, $2, $3, $4, $5, $6, $7, $8)', [data.arname, data.usernumber, data.arsurveynum, data.ardescription, request.param('one'), request.param('two'), request.param('three'), request.param('four')], function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
