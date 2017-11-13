@@ -519,7 +519,11 @@ app.post('/administrativeTasksLogin', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
 
         //Here I'm going to set this up as select auth from adminauth_table and need auth column in table
-        client.query('SELECT auth FROM adminauth_table WHERE adminname=$1 AND password=$2', [request.body.adminname, request.body.password], function (err, result) {
+        //JH - 11-13-2017 protecting from SQL-injection attacks using secureString().
+        var data = {adminname: 'place', password: 'holder'};
+        data.adminname = secureString(request.body.adminname);
+        data.password = secureString(request.body.password);
+        client.query('SELECT auth FROM adminauth_table WHERE adminname=$1 AND password=$2', [data.adminname, data.password], function (err, result) {
             done();
             if (err) {
                 console.error(err);
