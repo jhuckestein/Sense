@@ -175,10 +175,15 @@ app.get('/dblogic', function (request, response) {
 app.get('/episodesurvey', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
         if (typeof request.param('title') != 'undefined') {
-            // DR - Fixed mapping of table columns (Start)
-            // client.query('INSERT INTO eps_table(title, location, city, country, date, user, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22)', [request.param('title'), request.param('location'), request.param('city'), request.param('country'), request.param('date'), request.param('date'), request.param('user'), request.param('one'), request.param('two'), request.param('three'), request.param('four'), request.param('five'), request.param('six'), request.param('seven'), request.param('eight'), request.param('nine'), request.param('ten'), request.param('eleven'), request.param('twelve'), request.param('thirteen'), request.param('fourteen'), request.param('fifteen'), request.param('sixteen')], function (err, result){
-            client.query('INSERT INTO eps_table(eptitle, eplocation, epcity, epcountry, epdate, usernumber, epq1, epq2, epq3, epq4, epq5, epq6, epq7, epq8, epq9, epq10, epq11, epq12, epq13, epq14, epq15, epq16, date) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23)', [request.param('title'), request.param('location'), request.param('city'), request.param('country'), request.param('date'), request.param('usernumber'), request.param('one'), request.param('two'), request.param('three'), request.param('four'), request.param('five'), request.param('six'), request.param('seven'), request.param('eight'), request.param('nine'), request.param('ten'), request.param('eleven'), request.param('twelve'), request.param('thirteen'), request.param('fourteen'), request.param('fifteen'), request.param('sixteen'), new Date()], function (err, result) {
-                // DR - Fixed mapping of table columns (End)
+            //JH - inserting string input to guard against SQL insertion attacks
+            var data ={title: request.param('title'), location: request.param('location'), city: request.param('city'), country: request.param('country'), date: request.param('date'), usernumber: request.param('usernumber')};
+            data.title = secureString(data.title);
+            data.location = secureString(data.location);
+            data.city = secureString(data.city);
+            data.country = secureString(data.country);
+            data.date = secureString(data.date);
+            data.usernumber = secureString(data.usernumber);
+            client.query('INSERT INTO eps_table(eptitle, eplocation, epcity, epcountry, epdate, usernumber, epq1, epq2, epq3, epq4, epq5, epq6, epq7, epq8, epq9, epq10, epq11, epq12, epq13, epq14, epq15, epq16, date) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23)', [data.title, data.location, data.city, data.country, data.date, data.usernumber, request.param('one'), request.param('two'), request.param('three'), request.param('four'), request.param('five'), request.param('six'), request.param('seven'), request.param('eight'), request.param('nine'), request.param('ten'), request.param('eleven'), request.param('twelve'), request.param('thirteen'), request.param('fourteen'), request.param('fifteen'), request.param('sixteen'), new Date()], function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
