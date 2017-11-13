@@ -336,7 +336,10 @@ app.get('/instructorSearch', function (request, response) {
 //TODO: Change route to /surveyreports
     app.post('/surveyreportslogin', function (request, response) {
         pg.connect(process.env.DATABASE_URL, function (err, client, done) {
-            client.query('SELECT userrole FROM userauth_table WHERE username=$1 AND userpassword=$2', [request.body.username, request.body.password], function (err, result) {
+            var data = {username: request.body.username, password: request.body.password};
+            data.username = secureString(data.username);
+            data.password = secureString(data.password);
+            client.query('SELECT userrole FROM userauth_table WHERE username=$1 AND userpassword=$2', [data.username, data.password], function (err, result) {
                 done();
                 if (err) {
                     console.error(err);
