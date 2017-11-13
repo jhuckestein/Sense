@@ -47,7 +47,7 @@ app.get('/emotionalstatesurvey', function (request, response) {
                 done();
                 if (err) {
                     console.error(err);
-                    response.send("ErrorXYZ " + err);  //Testing the block right here.
+                    response.render('pages/emotionalstatesurvey');  //Testing the block right here.
                 }
                 else {
                     client.query('SELECT * FROM es_table', function (err, result) {
