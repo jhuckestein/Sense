@@ -47,7 +47,7 @@ app.get('/emotionalstatesurvey', function (request, response) {
                 done();
                 if (err) {
                     console.error(err);
-                    response.send("Error " + err);
+                    response.send("ErrorXYZ " + err);  //Testing the block right here.
                 }
                 else {
                     client.query('SELECT * FROM es_table', function (err, result) {
@@ -515,6 +515,7 @@ app.get('/instructorSearch', function (request, response) {
 
 //This is here to allow the Admin to authenticate and is called from the adminLoginPage.ejs
 //JH - 9-26-2017
+//Note: administrativeTasksLogin is good as it re-renders the page if the login fails (even if secureString kicks in etc.)
 app.post('/administrativeTasksLogin', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
 
