@@ -270,7 +270,10 @@ app.get('/instructorSearch', function (request, response) {
             //Determine which survey type was requested, then initiate the appropriate query.
 
             if (request.query.six == 'Episode Surveys') {
-                client.query('SELECT * FROM eps_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
+                //JH - 11-13-2017 protecting from SQL-injection attacks using secureString().
+                var data = {usernumber: request.param('usernumber')};
+                data.usernumber = secureString(data.usernumber);
+                client.query('SELECT * FROM eps_table WHERE usernumber=$1', [data.usernumber], function (err, result) {
                     done();
                     if (err) {
                         console.error(err);
@@ -287,7 +290,10 @@ app.get('/instructorSearch', function (request, response) {
                 });
             } else if (request.query.six == 'Emotional State') {
                 //execute the query with usernumber on emotional state survey table & render
-                client.query('SELECT * FROM es_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
+                //JH - 11-13-2017 protecting from SQL-injection attacks using secureString().
+                var data = {usernumber: request.param('usernumber')};
+                data.usernumber = secureString(data.usernumber);
+                client.query('SELECT * FROM es_table WHERE usernumber=$1', [data.usernumber], function (err, result) {
                     done();
                     if (err) {
                         console.error(err);
@@ -304,7 +310,10 @@ app.get('/instructorSearch', function (request, response) {
                 });
             } else if (request.query.six == 'Adjustment Response') {
                 //execute the query usernumber:Adjustment response table and render
-                client.query('SELECT * FROM adresp_table WHERE usernumber=$1', [request.param('usernumber')], function (err, result) {
+                //JH - 11-13-2017 protecting from SQL-injection attacks using secureString().
+                var data = {usernumber: request.param('usernumber')};
+                data.usernumber = secureString(data.usernumber);
+                client.query('SELECT * FROM adresp_table WHERE usernumber=$1', [data.usernumber], function (err, result) {
                     done();
                     if (err) {
                         console.error(err);
