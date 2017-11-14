@@ -32,10 +32,11 @@ app.get('/elements', function (request, response) {
 
 
 // ML - new app.get for emotionalstatesurvey with function to connect to postgres
+// JH - 11-14-2017 re-design to eliminate unused code left by ML.
 app.get('/emotionalstatesurvey', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
         if (typeof request.param('esname') != 'undefined') {
-            //Create a data object which will store the requested parameters, and then sanitize each
+            //JH-Create a data object which will store the requested parameters, and then sanitize each
             //before inserting into the database to prevent SQL Injection attacks.
             var data = {name: request.param('esname'), usernumber: request.param('usernumber'), essurveynumber: request.param('essurveynumber'), esdescription: request.param('esdescription'), esepisode: request.param('esepisode')};
             data.name = secureString(data.name);
@@ -47,19 +48,18 @@ app.get('/emotionalstatesurvey', function (request, response) {
                 done();
                 if (err) {
                     console.error(err);
-                    response.render('pages/emotionalstatesurvey');  //If the user gives garbage, then just re-render the page so hackers don't know they failed.
+                    response.render('pages/emotionalstatesurvey');  //JH -If the user gives garbage, then just re-render the page so hackers don't know they failed.
                 }
-                else {      //Successful case where the insert had no errors
+                else {      //JH -Successful case where the insert had no errors
                     console.log('Successful insertion of emotional state survey for ' + data.name);
-                    response.render('pages/emotionalStateQuerySubmitSuccess');  //could change to successful submision page
+                    response.render('pages/emotionalStateQuerySubmitSuccess');  //JH - changed to successful submission
                 }
             });
-        } else {    //In this case, the survey wasn't filled out so log and re-render the page.
-            done();  //Just close the database connection
+        } else {    //JH -In this case, the survey wasn't filled out so log and re-render the page.
+            done();  //JH -Just close the database connection as we don't need it.
             console.log('Incomplete emotional state survey submitted.');
             response.render('pages/emotionalstatesurvey');
         }
-       //});
     });
 });
 
@@ -79,7 +79,7 @@ app.get('/adjustmentresponsesurvey', function (request, response) {
                 done();
                 if (err) {
                     console.error(err);
-                    response.send("Error " + err);
+                    response.render('pages/adjustmentresponsesurvey');  //If the user gives garbage re-render the page
                 }
                 else {
                     client.query('SELECT * FROM adresp_table', function (err, result) {
