@@ -165,7 +165,7 @@ app.get('/episodesurvey', function (request, response) {
                 done();
                 if (err) {
                     console.error(err);
-                    response.send("Error " + err);
+                    response.render('pages/episodesurvey');
                 }
                 else {  //JH - case where database insertion is successful so console.log and render success page
                     console.log('A successful episode survey was recorded for ' + data.usernumber);
