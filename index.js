@@ -60,7 +60,7 @@ app.get('/emotionalstatesurvey', function (request, response) {
                     //    }
                     //});
                     console.log('Successful insertion of emotional state survey for ' + data.name);
-                    response.render('pages/emotionalstatesurvey');  //could change to successful submision page
+                    response.render('pages/emotionalStateQuerySubmitSuccess');  //could change to successful submision page
                 }
             });
         } else {    //In this case, the survey wasn't filled out so log and re-render the page.
@@ -709,4 +709,8 @@ app.get('/userauthtableerror', function (request, response) {
 
 app.get('/administrativeSuccess', function (request, response) {
     response.render('pages/administrativeSuccess');
+});
+
+app.get('/emotionalStateQuerySubmitSuccess', function (request, response) {
+    response.render('pages/emotionalStateQuerySubmitSuccess');
 });
