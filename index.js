@@ -675,3 +675,7 @@ app.get('/administrativeSuccess', function (request, response) {
 app.get('/emotionalStateQuerySubmitSuccess', function (request, response) {
     response.render('pages/emotionalStateQuerySubmitSuccess');
 });
+
+app.get('/episodesurveySubmitSuccess', function (request, response) {
+    response.render('pages/episodesurveySubmitSuccess');
+});
