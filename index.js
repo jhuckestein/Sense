@@ -66,6 +66,7 @@ app.get('/emotionalstatesurvey', function (request, response) {
 // ML - end of new app.get -- inserted on 7/1/2017
 
 //Wendy Hartman app.get for adjustmentresponsesurvey with function to connect to postgres
+//JH - 11-14-2017 refactoring to get rid of unused code left by WH.
 app.get('/adjustmentresponsesurvey', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
         if (typeof request.param('arname') != 'undefined') {
@@ -81,28 +82,15 @@ app.get('/adjustmentresponsesurvey', function (request, response) {
                     console.error(err);
                     response.render('pages/adjustmentresponsesurvey');  //If the user gives garbage re-render the page
                 }
-                else {
-                    client.query('SELECT * FROM adresp_table', function (err, result) {
-                        done();
-                        if (err) {
-                            console.error(err);
-                            response.send("Error " + err);
-                        } else {
-                            response.render('pages/adjustmentresponsesurvey', {results: result.rows});
-                        }
-                    });
+                else {  //JH - case where the insert is successful so, console-log and render success page.
+                    console.log('There was a successful adjustmentresponsesurvey for ' + data.arname);
+                    response.render('pages/adjustmentresponsesurveySubmitSuccess');
                 }
             });
-        } else {
-            client.query('SELECT * FROM adresp_table', function (err, result) {
-                done();
-                if (err) {
-                    console.error(err);
-                    response.send("Error " + err);
-                } else {
-                    response.render('pages/adjustmentresponsesurvey', {results: result.rows});
-                }
-            });
+        } else {   //JH - case where an incomplete survey was submitted not identifying the respondent
+            done();  //JH - just close the database connection as it won't be needed
+            console.log('An incomplete adjustment response survey was submitted');
+            response.render('pages/adjustmentresponsesurvey');
         }
     });
 });
