@@ -174,7 +174,7 @@ app.get('/episodesurvey', function (request, response) {
             });
         } else {  //JH - case where an incomplete survey is submitted so log and re-render the survey page.
             done();  //JH - close the database connection as we aren't submitting anything.
-            console.log('The user did not give a title for an episode survey and user= ' + data.usernumber);
+            console.log('The user did not give a title for an episode survey');
             response.render('pages/episodesurvey');
         }
     });
