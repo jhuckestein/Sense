@@ -149,6 +149,7 @@ app.get('/dblogic', function (request, response) {
     });
 });
 
+//JH 11-14-2017 refactoring to get rid of unused code left by JH during original development
 app.get('/episodesurvey', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
         if (typeof request.param('title') != 'undefined') {
@@ -166,28 +167,15 @@ app.get('/episodesurvey', function (request, response) {
                     console.error(err);
                     response.send("Error " + err);
                 }
-                else {
-                    client.query('SELECT * FROM eps_table', function (err, result) {
-                        done();
-                        if (err) {
-                            console.error(err);
-                            response.send("Error " + err);
-                        } else {
-                            response.render('pages/episodesurvey', {results: result.rows});
-                        }
-                    });
+                else {  //JH - case where database insertion is successful so console.log and render success page
+                    console.log('A successful episode survey was recorded for ' + data.usernumber);
+                    response.render('pages/episodesurveySubmitSuccess');
                 }
             });
-        } else {
-            client.query('SELECT * FROM eps_table', function (err, result) {
-                done();
-                if (err) {
-                    console.error(err);
-                    response.send("Error " + err);
-                } else {
-                    response.render('pages/episodesurvey', {results: result.rows});
-                }
-            });
+        } else {  //JH - case where an incomplete survey is submitted so log and re-render the survey page.
+            done();  //JH - close the database connection as we aren't submitting anything.
+            console.log('The user did not give a title for an episode survey and user= ' + data.usernumber);
+            response.render('pages/episodesurvey');
         }
     });
 });
