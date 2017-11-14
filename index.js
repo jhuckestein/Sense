@@ -49,28 +49,13 @@ app.get('/emotionalstatesurvey', function (request, response) {
                     console.error(err);
                     response.render('pages/emotionalstatesurvey');  //If the user gives garbage, then just re-render the page so hackers don't know they failed.
                 }
-                else {      //We never seem to hit this portion of the code, but I'm not removing it yet.
-                    //client.query('SELECT * FROM es_table', function (err, result) {
-                    //    done();
-                    //    if (err) {
-                    //        console.error(err);   //In this area would be a good place to put a console log
-                    //        response.send("Error " + err);  //indicating success and re-render page or success page.
-                    //    } else {
-                    //        response.render('pages/emotionalstatesurvey', {results: result.rows});
-                    //    }
-                    //});
+                else {      //Successful case where the insert had no errors
                     console.log('Successful insertion of emotional state survey for ' + data.name);
                     response.render('pages/emotionalStateQuerySubmitSuccess');  //could change to successful submision page
                 }
             });
         } else {    //In this case, the survey wasn't filled out so log and re-render the page.
-            //client.query('SELECT * FROM es_table', function (err, result) {
-            //    done();
-            //    if (err) {
-            //        console.error(err);
-            //        response.send("Error " + err);
-            //    } else {   //There are no hooks to return results on the render - so the query is not needed.
-            //        response.render('pages/emotionalstatesurvey', {results: result.rows});
+            done();  //Just close the database connection
             console.log('Incomplete emotional state survey submitted.');
             response.render('pages/emotionalstatesurvey');
         }
