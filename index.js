@@ -47,33 +47,37 @@ app.get('/emotionalstatesurvey', function (request, response) {
                 done();
                 if (err) {
                     console.error(err);
-                    response.render('pages/emotionalstatesurvey');  //Testing the block right here.
+                    response.render('pages/emotionalstatesurvey');  //If the user gives garbage, then just re-render the page so hackers don't know they failed.
                 }
-                else {
-                    client.query('SELECT * FROM es_table', function (err, result) {
-                        done();
-                        if (err) {
-                            console.error(err);
-                            response.send("Error " + err);
-                        } else {
-                            response.render('pages/emotionalstatesurvey', {results: result.rows});
-                        }
-                    });
-                }
-            });
-        } else {
-            client.query('SELECT * FROM es_table', function (err, result) {
-                done();
-                if (err) {
-                    console.error(err);
-                    response.send("Error " + err);
-                } else {
-                    response.render('pages/emotionalstatesurvey', {results: result.rows});
+                else {      //We never seem to hit this portion of the code, but I'm not removing it yet.
+                    //client.query('SELECT * FROM es_table', function (err, result) {
+                    //    done();
+                    //    if (err) {
+                    //        console.error(err);   //In this area would be a good place to put a console log
+                    //        response.send("Error " + err);  //indicating success and re-render page or success page.
+                    //    } else {
+                    //        response.render('pages/emotionalstatesurvey', {results: result.rows});
+                    //    }
+                    //});
+                    console.log('Successful insertion of emotional state survey for ' + data.name);
+                    response.render('pages/emotionalstatesurvey');  //could change to successful submision page
                 }
             });
+        } else {    //In this case, the survey wasn't filled out so log and re-render the page.
+            //client.query('SELECT * FROM es_table', function (err, result) {
+            //    done();
+            //    if (err) {
+            //        console.error(err);
+            //        response.send("Error " + err);
+            //    } else {   //There are no hooks to return results on the render - so the query is not needed.
+            //        response.render('pages/emotionalstatesurvey', {results: result.rows});
+            console.log('Incomplete emotional state survey submitted.');
+            response.render('pages/emotionalstatesurvey');
         }
+       //});
     });
 });
+
 // ML - end of new app.get -- inserted on 7/1/2017
 
 //Wendy Hartman app.get for adjustmentresponsesurvey with function to connect to postgres
